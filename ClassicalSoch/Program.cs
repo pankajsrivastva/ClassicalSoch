@@ -7,12 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
 builder.Services.AddScoped<IHomeService, HomeService>();
 builder.Services.AddScoped<IPackageService, PackageService>();
 builder.Services.AddScoped<IContactService, ContactService>();
@@ -29,14 +31,22 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+
+// ? FIXED STATIC FILE CONFIG
+app.UseStaticFiles(); // wwwroot default
+
 app.UseStaticFiles(new StaticFileOptions
 {
-    FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "..", "IMages")),
-    RequestPath = "/IMages"
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.WebRootPath, "Images")
+    ),
+    RequestPath = "/Images"
 });
+
 app.UseRouting();
+
 app.UseSession();
+
 app.UseCustomExceptionHandling();
 app.UseAuthorization();
 
