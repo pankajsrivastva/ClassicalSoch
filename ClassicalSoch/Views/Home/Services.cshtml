@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Services";
+}
+
+<section class="py-5">
+    <div class="container">
+        <div class="section-heading text-center mb-5">
+            <p class="eyebrow">Premium Services</p>
+            <h2 class="fw-bold">Men, women, bridal, spa, and academy-ready beauty treatments</h2>
+        </div>
+        <div class="row g-4">
+            @{ var serviceImages = new[] { "SiderGeints.jpeg", "SiderLedies.jpeg", "PackageImageForMan.jpeg", "PackageImageforWomen.jpeg" }; }
+            @for (var i = 0; i < 8; i++)
+            {
+                <div class="col-md-6 col-lg-3">
+                    <div class="card service-card h-100">
+                        <img src="~/Images/@serviceImages[i % serviceImages.Length]" class="card-img-top" alt="Service" />
+                        <div class="card-body">
+                            <h5 class="card-title">Signature Styling</h5>
+                            <p class="text-muted">45 mins</p>
+                            <p class="card-text">Tailored beauty care with premium finishing and comfort.</p>
+                            <span class="price">₹1,200</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

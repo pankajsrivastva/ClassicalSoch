@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Gallery";
+    var galleryImages = new[] { "HomepageMain.jpeg", "ProjectDescriptiveImage.jpeg", "PackageImageForMan.jpeg", "PackageImageforWomen.jpeg", "SiderGeints.jpeg", "SiderLedies.jpeg" };
+}
+
+<section class="py-5">
+    <div class="container">
+        <div class="section-heading text-center mb-5">
+            <p class="eyebrow">Our Gallery</p>
+            <h2 class="fw-bold">Moments of elegance and style</h2>
+        </div>
+        <div class="row g-4">
+            @for (int i = 0; i < galleryImages.Length; i++)
+            {
+                <div class="col-md-4">
+                    <img src="~/Images/@galleryImages[i]" alt="Gallery image @(i + 1)" class="img-fluid rounded-4" />
+                </div>
+            }
+        </div>
+    </div>
+</section>

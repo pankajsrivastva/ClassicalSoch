@@ -1,0 +1,121 @@
+﻿@model ClassicalSoch.Models.HomePageViewModel
+@{
+    ViewData["Title"] = "Luxury Salon & Academy";
+}
+
+<section class="hero-section py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <p class="eyebrow">Unisex Salon & Academy</p>
+                <h1 class="display-3 fw-bold">The Classical Soch</h1>
+                <p class="lead">Where premium grooming, bridal artistry, and professional beauty learning come together in an elegant, modern setting.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a class="btn btn-gold btn-lg" asp-controller="Packages" asp-action="Index">Explore Packages</a>
+                    <a class="btn btn-outline-gold btn-lg" asp-controller="Home" asp-action="Contact">Book Your Visit</a>
+                </div>
+                <div class="row mt-5 g-4">
+                    <div class="col-sm-4">
+                        <div class="stat-card">
+                            <h3>20+</h3>
+                            <p>Years of expertise</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="stat-card">
+                            <h3>4.9/5</h3>
+                            <p>Client satisfaction</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="stat-card">
+                            <h3>500+</h3>
+                            <p>Happy clients</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="hero-card">
+                    <img src="~/Images/HomepageMain.jpeg" alt="Luxury salon interior" class="img-fluid rounded-4" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section py-5">
+    <div class="container">
+        <div class="section-heading text-center mb-5">
+            <p class="eyebrow">Signature Services</p>
+            <h2 class="fw-bold">Premium experiences crafted for every style</h2>
+        </div>
+        <div class="row g-4">
+            @foreach (var service in Model.Services)
+            {
+                <div class="col-md-4">
+                    <div class="card service-card h-100">
+                        <img src="@service.ImageUrl" class="card-img-top" alt="@service.ServiceName" />
+                        <div class="card-body">
+                            <h5 class="card-title">@service.ServiceName</h5>
+                            <p class="text-muted">@service.Duration</p>
+                            <p class="card-text">Luxury treatment with utmost detail and comfort.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">₹@service.Price</span>
+                                <a href="/Home/Contact" class="btn btn-outline-gold btn-sm">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="section py-5 bg-dark text-white">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+                <p class="eyebrow">Featured Packages</p>
+                <h2 class="fw-bold">Curated offers designed for beauty and confidence</h2>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+                <a class="btn btn-gold" asp-controller="Packages" asp-action="Index">View All Packages</a>
+            </div>
+        </div>
+        <div class="row g-4 mt-2">
+            @foreach (var package in Model.Packages)
+            {
+                <div class="col-md-4">
+                    <div class="card package-card h-100">
+                        <img src="@package.ImageUrl" class="card-img-top" alt="@package.PackageName" />
+                        <div class="card-body">
+                            <h5 class="card-title">@package.PackageName</h5>
+                            <p class="text-muted">Special offer curated for you</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">₹@package.DiscountPrice</span>
+                                <span class="badge bg-gold">Limited Offer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="section py-5">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <img src="~/Images/ProjectDescriptiveImage.jpeg" alt="About the salon" class="img-fluid rounded-4" />
+            </div>
+            <div class="col-lg-6">
+                <p class="eyebrow">About The Classical Soch</p>
+                <h2 class="fw-bold">A premium blend of tradition, artistry, and modern beauty</h2>
+                <p class="text-muted">We are committed to offering exceptional salon experiences for men and women, along with professional academy training that helps students build successful beauty careers.</p>
+                <a class="btn btn-gold mt-3" asp-controller="Home" asp-action="About">Discover Our Story</a>
+            </div>
+        </div>
+    </div>
+</section>

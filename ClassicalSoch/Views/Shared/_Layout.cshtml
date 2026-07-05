@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="The Classical Soch is a premium unisex salon and academy offering luxury hair, spa, bridal, and grooming services in Siwan, Bihar." />
+    <meta name="keywords" content="salon, academy, bridal makeup, spa, hair salon, siwan" />
+    <title>@ViewData["Title"] - The Classical Soch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <div id="page-loader" class="page-loader">
+        <div class="loader-heart"></div>
+    </div>
+
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">The Classical Soch</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="About">About</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Courses">Academy</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Packages" asp-action="Index">Packages</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Gallery">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Faq">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-outline-gold btn-sm ms-2" asp-controller="AdminAuth" asp-action="Login">Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="fw-bold">The Classical Soch</h4>
+                    <p class="text-muted">Luxury salon and academy for men and women, crafted with elegance and precision.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact</h5>
+                    <p class="mb-1">7484994456</p>
+                    <p class="mb-1">Gherai More Andar, Siwan, Bihar</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Follow Us</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-decoration-none">Instagram</a>
+                        <a href="#" class="text-decoration-none">Facebook</a>
+                        <a href="#" class="text-decoration-none">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top">↑</a>
+    <a href="tel:7484994456" class="floating-call">Call</a>
+    <a href="https://wa.me/917484994456" target="_blank" class="floating-whatsapp">WhatsApp</a>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

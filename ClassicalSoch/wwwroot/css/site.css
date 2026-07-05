@@ -1,0 +1,38 @@
+:root {
+    --bg: #f8f3ec;
+    --surface: #fffdf9;
+    --text: #2d1b1b;
+    --muted: #6f5a54;
+    --gold: #c8a24b;
+    --rose: #8f3f4d;
+    --maroon: #6f1d2b;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin-bottom: 0; }
+h1, h2, h3, h4, h5, .navbar-brand { font-family: 'Playfair Display', serif; }
+img { max-width: 100%; }
+.navbar { background: linear-gradient(135deg, var(--maroon) 0%, #8b2e3f 100%); padding: 1rem 0; box-shadow: 0 6px 24px rgba(111,29,43,0.15); }
+.navbar-brand, .nav-link { color: var(--white) !important; }
+.nav-link:hover { color: var(--gold) !important; }
+.btn-gold { background: var(--gold); color: #2d1b1b; border: 1px solid var(--gold); }
+.btn-outline-gold { color: var(--maroon); border: 1px solid var(--maroon); background: transparent; }
+.btn-gold:hover, .btn-outline-gold:hover { background: var(--rose); color: white; border-color: var(--rose); }
+.hero-section { background: linear-gradient(135deg, #fdf6eb 0%, #f7e8e0 100%); color: var(--text); padding-top: 4rem; padding-bottom: 4rem; }
+.eyebrow { color: var(--maroon); text-transform: uppercase; letter-spacing: 0.3rem; font-size: 0.8rem; font-weight: 600; }
+.stat-card, .service-card, .package-card, .hero-card { background: var(--surface); border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(111,29,43,0.08); overflow: hidden; }
+.service-card .card-body, .package-card .card-body { padding: 1.25rem; }
+.price { color: var(--maroon); font-weight: 600; }
+.bg-gold { background-color: var(--gold) !important; color: #2d1b1b; }
+.section { background: #fcfaf6; }
+.footer { background: linear-gradient(135deg, var(--maroon) 0%, #8b2e3f 100%); color: var(--white); }
+.footer a { color: var(--gold); }
+.back-to-top, .floating-call, .floating-whatsapp { position: fixed; right: 20px; z-index: 1000; color: white; text-decoration: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.back-to-top { bottom: 90px; width: 46px; height: 46px; background: var(--maroon); }
+.floating-call { bottom: 20px; width: 56px; height: 56px; background: var(--rose); }
+.floating-whatsapp { bottom: 20px; right: 90px; width: 56px; height: 56px; background: #25d366; }
+..page-loader { position: fixed; inset: 0; background: rgba(111,29,43,0.95); display: none; align-items: center; justify-content: center; z-index: 9999; }
+.loader-heart { width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #fff, #ffe8b4 40%, #d18f6c 100%); box-shadow: 0 0 40px rgba(255,255,255,0.4); animation: pulse 1s infinite; }
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+@media (max-width: 767px){ .hero-section{padding-top:2rem;padding-bottom:2rem;} .floating-whatsapp{right:20px;bottom:80px;} }
