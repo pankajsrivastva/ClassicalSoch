@@ -1,0 +1,49 @@
+@model List<ClassicalSoch.Models.Package>
+@{
+    ViewData["Title"] = "Packages";
+}
+
+<section class="py-5">
+    <div class="container">
+        <div class="section-heading text-center mb-5">
+            <p class="eyebrow">Special Offers</p>
+            <h2 class="fw-bold">Discover premium packages with luxury savings</h2>
+        </div>
+
+        <form method="get" class="row g-3 mb-4">
+            <div class="col-md-4">
+                <input name="search" class="form-control" placeholder="Search packages" value="@ViewBag.Search" />
+            </div>
+            <div class="col-md-4">
+                <select name="category" class="form-select">
+                    <option value="">All Categories</option>
+                    <option value="Women" selected="@(ViewBag.Category == "Women")">Women</option>
+                    <option value="Men" selected="@(ViewBag.Category == "Men")">Men</option>
+                    <option value="Bridal" selected="@(ViewBag.Category == "Bridal")">Bridal</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-gold" type="submit">Filter</button>
+            </div>
+        </form>
+
+        <div class="row g-4">
+            @foreach (var package in Model)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="card package-card h-100">
+                        <img src="@package.ImageUrl" class="card-img-top" alt="@package.PackageName" />
+                        <div class="card-body">
+                            <h5 class="card-title">@package.PackageName</h5>
+                            <p class="text-muted">@package.Description</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">₹@package.DiscountPrice</span>
+                                <span class="badge bg-gold">@package.DiscountPercentage% OFF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
